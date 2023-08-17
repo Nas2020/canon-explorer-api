@@ -16,15 +16,7 @@ export class AppService {
     return 'Hello World!';
   }
 
-  // Methods for fetching data from each collection:
 
-  // async getCredRegisteredEvents(): Promise<any[]> {
-  //   return this.credRegisteredEventModel.find().exec();
-  // }
-
-  // async getNYMRegisteredEvents(): Promise<any[]> {
-  //   return this.nymRegisteredEventModel.find().exec();
-  // }
 
   async getInteractions(): Promise<any[]> {
     return this.InteractionsModel.find().exec();

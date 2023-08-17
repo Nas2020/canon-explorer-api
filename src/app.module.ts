@@ -1,6 +1,4 @@
 /* eslint-disable prettier/prettier */
-import * as config from 'config';
-import { MongoConfig } from '../config.types';
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
@@ -12,11 +10,12 @@ import { BlocksSchema } from '../schemas/recentblocknumber.schema';
 import { ContractsSchema } from '../schemas/contracts.schema';
 import { NetworkSchema } from '../schemas/network.schema';
 
-const mongoConfig: MongoConfig = config.get('mongo');
+const mongoUri = process.env.MONGO_URI || 'mongodb://localhost:27017/canon';
+
 
 @Module({
   imports: [
-    MongooseModule.forRoot(mongoConfig.uri),
+    MongooseModule.forRoot(mongoUri),
     MongooseModule.forFeature([
       { name: 'Interaction', schema: InteractionsSchema },
       { name: 'Block', schema: BlocksSchema },
