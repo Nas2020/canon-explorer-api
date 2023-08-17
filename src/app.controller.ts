@@ -15,7 +15,22 @@ export class AppController {
     return this.appService.getHello();
   }
 
-  // @ApiTags('Schema Registered Events')
+
+  @Get('cred-def-registered')
+  async getCredDefRegisteredEvents() {
+    return this.appService.getCredDefRegisteredEvents();
+  }
+
+  @Get('schema-registered')
+  async getSchemaRegisteredEvents() {
+    return this.appService.getSchemaRegisteredEvents();
+  }
+
+  @Get('nym-registered')
+  async getNYMRegisteredEvents() {
+    return this.appService.getNYMRegisteredEvents();
+  }
+
   @Get('interactions')
   @ApiOperation({ summary: 'Retrieve all Interactions with Utility Smart Contract' })
   @ApiResponse({ status: 200, description: 'Successfully retrieved interation transactions and events' })
@@ -23,7 +38,7 @@ export class AppController {
     return this.appService.getInteractions();
   }
 
-  //@ApiTags('Blocks')
+
   @Get('blocknumber')
   @ApiOperation({ summary: 'Retrieve The Recent Block Number Recorded in MongoDB' })
   @ApiResponse({ status: 200, description: 'Successfully retrieved blocks' })
@@ -31,7 +46,6 @@ export class AppController {
     return this.appService.getBlockNumber();
   }
 
-  //@ApiTags('Contracts')
   @Get('contracts')
   @ApiOperation({ summary: 'Retrieve all Contracts' })
   @ApiResponse({ status: 200, description: 'Successfully retrieved contracts' })
@@ -39,7 +53,6 @@ export class AppController {
     return this.appService.getContracts();
   }
 
-  //@ApiTags('Peers')
   @Get('peers')
   @ApiOperation({ summary: 'Retrieve all Peers' })
   @ApiResponse({ status: 200, description: 'Successfully retrieved Peers' })
@@ -47,7 +60,6 @@ export class AppController {
     return this.appService.getPeers();
   }
 
-  //@ApiTags('Peers')
   @Get('transactioncount')
   @ApiOperation({ summary: 'Obtain total number of Transactions in the network' })
   @ApiResponse({ status: 200, description: 'Successfully retrieved Peers' })

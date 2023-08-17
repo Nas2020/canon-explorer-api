@@ -16,7 +16,17 @@ export class AppService {
     return 'Hello World!';
   }
 
-
+  async getCredDefRegisteredEvents(): Promise<any[]> {
+    return this.InteractionsModel.find({'event.eventName': 'CredDefRegistered'}).exec();
+  }
+  
+  async getSchemaRegisteredEvents(): Promise<any[]> {
+    return this.InteractionsModel.find({'event.eventName': 'SchemaRegistered'}).exec();
+  }
+  
+  async getNYMRegisteredEvents(): Promise<any[]> {
+    return this.InteractionsModel.find({'event.eventName': 'NYMRegistered'}).exec();
+  }
 
   async getInteractions(): Promise<any[]> {
     return this.InteractionsModel.find().exec();
