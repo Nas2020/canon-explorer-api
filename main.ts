@@ -10,7 +10,7 @@ const port = process.env.PORT_NUMBER || 8000;
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-
+  app.enableCors()
   const options = new DocumentBuilder()
     .setTitle('CANON BLOCK EXPLORER API')
     .setDescription('Back-End Service for Canon Block Explorer!')
